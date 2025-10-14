@@ -1,0 +1,15 @@
+dataset_name: "DIV2K_data_augment"
+operation: "inpainting"
+noise: null
+oversampling_ratio: 0.3
+n_images: 800
+method: "supervised"
+batch_size: 10
+epochs: 200
+learning_rate: 0.0002
+losses_name:
+  - "mse"
+model: "UNet_equi_no_norm"
+losses_params:
+  mse:
+    metric: "MSELoss"

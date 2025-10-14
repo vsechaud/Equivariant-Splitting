@@ -1,0 +1,20 @@
+dataset_name: "MNIST"
+operation: "CS"
+noise: null
+oversampling_ratio: 0.3
+n_images: 20000
+method: "unsupervised"
+batch_size: 25
+epochs: 500
+learning_rate: 0.0001
+losses_name:
+  - "mc"
+  - "ei"
+model: "unroll_UNet_equi_no_norm"
+losses_params:
+  mc:
+    metric: "MSELoss"
+  ei:
+    metric: "MSELoss"
+    weight: 1.0
+    no_grad: false

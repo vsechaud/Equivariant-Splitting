@@ -1,0 +1,20 @@
+dataset_name: "DIV2K"
+operation: "inpainting"
+noise: null
+oversampling_ratio: 0.3
+n_images: 800
+method: "unsupervised"
+batch_size: 10
+epochs: 200
+learning_rate: 0.0002
+losses_name:
+  - "mc"
+  - "ei"
+model: "UNet_no_norm"
+losses_params:
+  mc:
+    metric: "MSELoss"
+  ei:
+    metric: "MSELoss"
+    weight: 1.0
+    no_grad: false

@@ -1,0 +1,20 @@
+dataset_name: "MNIST"
+operation: "CS"
+noise: null
+oversampling_ratio: 0.3
+n_images: 20000
+method: "unsupervised"
+batch_size: 25
+epochs: 500
+learning_rate: 0.0001
+losses_name:
+  - "Split"
+model: "unroll_UNet_no_norm"
+losses_params:
+  Split:
+    metric: "MSELoss"
+    eval_split_input: true
+    eval_n_samples: 10
+    full: false
+  mask_generator:
+    split_ratio: 0.9

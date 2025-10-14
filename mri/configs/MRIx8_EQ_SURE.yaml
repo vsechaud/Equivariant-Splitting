@@ -1,0 +1,15 @@
+acceleration: 8
+center_fraction: 0.03
+noise_sigma: 0.005
+epochs: 10000
+batch_size: 4
+learning_rate: 0.0001
+weight_decay: 0.00000001
+scheduler: "80%/2"
+loss: "sure"
+sure_tau: 0.0005
+denoiser_kind: "UNet"
+denoiser_normalization: "none"
+denoiser_reynolds_group: "Trivial"
+reconstructor_kind: "MoDL"
+reconstructor_reynolds_group: "D4"
