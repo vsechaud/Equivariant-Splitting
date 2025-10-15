@@ -44,7 +44,7 @@ export default class Header extends Component{
                             </div>
                             <div className="is-size-5 publication-authors">
                                 <span className="author-block"><sup>1</sup> LPENSL, CNRS, ENS de Lyon, France</span>
-                                <span className="author-block">&nbsp;<sup>2</sup> Prysm, Le Cannet, France</span>
+                                <span className="author-block">&nbsp;<sup>2</sup> Prysm, Lyon, France</span>
                                 <br></br>
                                 <span className="author-block-small">* Equal contribution</span>
                             </div>
