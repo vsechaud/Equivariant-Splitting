@@ -341,4 +341,3 @@ dependencies:
       - yapf==0.43.0
       - yarl==1.9.4
       - zipp==3.23.0
-      - git+https://github.com/jscanvic/deepinv.git@env_equivariant_splitting

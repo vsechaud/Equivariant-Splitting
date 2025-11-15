@@ -52,16 +52,3 @@ The parameter `<config>` corresponds to one of the configuration names below.
 
 
 This work makes use of the efficient training losses and MRI operator in DeepInverse and the convenient MRI training and comparison features in SSIBench.
-
-### Citation
-
-Please consider citing this work if you find it useful in your research:
-
-```
-@article{sechaud2025equivariant,
-  title={Equivariant Splitting: Self-supervised learning from incomplete data},
-  author={Sechaud, Victor and Scanvic, J{\'e}r{\'e}my and Barth{\'e}lemy, Quentin and Abry, Patrice and Tachella, Juli{\'a}n},
-  journal={arXiv preprint arXiv:2510.00929},
-  year={2025}
-}
-```
