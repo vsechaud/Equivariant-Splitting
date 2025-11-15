@@ -10,7 +10,7 @@ Abstract: *Self-supervised learning for inverse problems allows to train a recon
 
 ### Experiments
 
-Equivariant splitting is evaluated on different imaging modalities: compressive sensing, image inpainting and accelerated MRI. The code and instructions to reproduce the results for compressive sensing and inpainting are available [here](cs+inp) and for MRI [here](mri).
+Equivariant splitting is evaluated on different imaging modalities: compressive sensing, image inpainting and accelerated MRI. The code and instructions to reproduce the results for compressive sensing and inpainting are available [here](cs_inp) and for MRI [here](mri).
 
 ### Acknowledgment
 
