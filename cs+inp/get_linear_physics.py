@@ -14,7 +14,7 @@ def get_measurement_dir(**config):
             / "ckpts"
             / config["operation"]
             / (re.sub(r'\b_data_augment\b', '', config["dataset_name"]) + "_" + dataset_filename)
-    ) # (re.sub(r'\b_data_augment\b', '', config["dataset_name"]) remplace _data_augment par rien ("") dans config["dataset_name"]).
+    )
     return measurement_dir
 
 def get_Lphysics(device, rng=None, **config):
@@ -136,7 +136,7 @@ def get_Lmodel(device, **config):
             scales=4,
             circular_padding="zeros_padding" not in config["model"],
             device=device,
-            equivariance=True  # attention il faut mettre true mais ca change en layer norm
+            equivariance=True #To use layer norm instead of batch norm. If batch_norm=False,equivariance is ignored
         ).to(device)
         if "equi" in config["model"]
         else dinv.models.UNet(
