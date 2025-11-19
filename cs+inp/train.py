@@ -19,7 +19,7 @@ def train(device, **config):
         / "ckpts"
         / config["operation"]
         / (re.sub(r'\b_data_augment\b', '', config["dataset_name"]) + "_" + dataset_filename)
-    )  #(re.sub(r'\b_data_augment\b', '', config["dataset_name"]) remplace _data_augment par rien ("") dans config["dataset_name"]).
+    )  
 
     # %%
     # Set up the data with the physics
@@ -65,7 +65,7 @@ def train(device, **config):
     # --------------------------------------------
     #
     verbose = True  # print training information
-    wandb_vis = "STY" in os.environ  # plot curves and images in Weight&Bias, "STY" in os.environ determines whether we are inside a screen session or not.
+    wandb_vis = False
 
     if wandb_vis:
         # start a new wandb run to track this script
