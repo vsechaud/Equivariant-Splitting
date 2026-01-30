@@ -1,4 +1,4 @@
-## Equivariant Splitting: Self-supervised learning from incomplete data<br><sub>Official PyTorch implementation</sub>
+## Equivariant Splitting: Self-supervised learning from incomplete data<br><sub>Official PyTorch implementation, ICLR 2026</sub>
 
 [![arXiv](https://img.shields.io/badge/arXiv-Equivariant%20Splitting-b31b1b.svg)](https://arxiv.org/abs/2510.00929)
 [![Code](https://img.shields.io/badge/GitHub-Code-blue.svg)](https://github.com/vsechaud/Equivariant-Splitting)
@@ -96,10 +96,11 @@ This work makes use of the efficient forward operators and training losses in De
 Please consider citing this work if you find it useful in your research:
 
 ```
-@article{sechaud2025equivariant,
-  title={Equivariant Splitting: Self-supervised learning from incomplete data},
-  author={Sechaud, Victor and Scanvic, J{\'e}r{\'e}my and Barth{\'e}lemy, Quentin and Abry, Patrice and Tachella, Juli{\'a}n},
-  journal={arXiv preprint arXiv:2510.00929},
-  year={2025}
+@inproceedings{sechaud2026equivariant,
+    title={Equivariant Splitting: Self-supervised learning from incomplete data},
+    author={Sechaud, Victor and Scanvic, J{\'e}r{\'e}my and Barth{\'e}lemy, Quentin and Abry, Patrice and Tachella, Juli{\'a}n},
+    booktitle={The Fourteenth International Conference on Learning Representations},
+    year={2026},
+    url={https://openreview.net/forum?id=upMIVpe467}
 }
 ```
