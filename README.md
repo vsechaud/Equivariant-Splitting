@@ -17,6 +17,73 @@ Abstract: *Self-supervised learning for inverse problems allows to train a recon
 
 Equivariant splitting is evaluated on different imaging modalities: compressive sensing, image inpainting and accelerated MRI. The code and instructions to reproduce the results for compressive sensing and inpainting are available [here](cs+inp) and for MRI [here](mri).
 
+#### Accelerated MRI
+
+Equivariant imaging learns to solve the challenging, ill-posed problem of accelerated MRI directly from noisy k-space measurements.
+
+This section details how to run the experiments for accelerated MRI in the `mri` folder.
+
+**Setting up the environment**
+
+For better reproducibility, we recommend using `conda` to set up the environment using our provided `environment.yml` file.
+
+```sh
+cd mri
+conda env create -f environment.yml
+```
+
+**Creating the dataset**
+
+To prepare the dataset used in `train.py` for the experiments, follow the instructions below.
+
+1. Download [FastMRI](https://fastmri.med.nyu.edu) single-coil knee acquisitions `knee_singlecoil_train` (72.7 GB)
+2. Place the downloaded data in `FastMRI/knee/singlecoil_train`
+3. Generate the slice dataset using `python create_dataset.py`
+
+If everything is set up correctly, it should create a directory `FastMRI-Slices` containing a file named `fastmri_knee_singlecoil.pt`.
+
+**Training a model**
+
+```sh
+python train.py <config>
+```
+
+**Configurations**
+
+The parameter `<config>` corresponds to one of the configuration names below.
+
+| Loss        | Equivariant  | Acceleration | Configuration name        |
+|-------------|--------------|--------------|---------------------------|
+| Supervised  | ✅           | x8           | MRIx8_EQ_Supervised       |
+| Supervised  | ❌           | x8           | MRIx8_NEQ_Supervised      |
+| ES (Ours)   | ✅           | x8           | MRIx8_EQ_ES               |
+| ES          | ❌           | x8           | MRIx8_NEQ_ES              |
+| EI          | ✅           | x8           | MRIx8_EQ_EI               |
+| SURE        | ✅           | x8           | MRIx8_EQ_SURE             |
+| Supervised  | ✅           | x6           | MRIx6_EQ_Supervised       |
+| Supervised  | ❌           | x6           | MRIx6_NEQ_Supervised      |
+| ES (Ours)   | ✅           | x6           | MRIx6_EQ_ES               |
+| ES          | ❌           | x6           | MRIx6_NEQ_ES              |
+| EI          | ✅           | x6           | MRIx6_EQ_EI               |
+| SURE        | ✅           | x6           | MRIx6_EQ_SURE             |
+
+#### Compressive Sensing and Inpainting
+
+This section details how to run the experiments for compressive sensing and inpainting in the `cs+inp` folder.
+
+**Usage**
+
+The `run_train.py` script calls the `train` function defined in `train.py`.
+
+`run_train.py` expects a path to a YAML configuration file as an argument. Example configuration files can be found in the `configs/` folder.
+
+**Example**
+
+```bash
+cd cs+inp
+python run_train.py --config_path configs/config_cs_split_equi.yaml
+```
+
 ### Acknowledgment
 
 [![SSIBench](https://img.shields.io/badge/GitHub-SSIBench-blue.svg)](https://github.com/Andrewwango/ssibench)
