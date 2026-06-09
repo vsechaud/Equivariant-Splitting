@@ -3,6 +3,7 @@ import torch
 import deepinv as dinv
 from torchvision import datasets, transforms
 import re
+from .unet_shift_eq import UNetShiftEQ
 
 
 def get_measurement_dir(**config):
@@ -127,7 +128,7 @@ def get_Lmodel(device, **config):
         raise ValueError("Unknown dataset")
 
     backbone = (
-        dinv.models.UNet_equi(
+        UNetShiftEQ(
             in_channels=C,
             out_channels=C,
             residual="no_residual" not in config["model"],
@@ -136,7 +137,7 @@ def get_Lmodel(device, **config):
             scales=4,
             circular_padding="zeros_padding" not in config["model"],
             device=device,
-            equivariance=True #To use layer norm instead of batch norm. If batch_norm=False,equivariance is ignored
+            layernorm_af=True # Use alias-free layer norm if batch_norm=True. Ignored otherwise.
         ).to(device)
         if "equi" in config["model"]
         else dinv.models.UNet(
