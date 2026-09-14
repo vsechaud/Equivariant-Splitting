@@ -67,7 +67,7 @@ if __name__ == "__main__":
     denoiser_residual = True
     denoiser_normalization = config["denoiser_normalization"]
     unet_scales = 4
-    if denoiser_kind in ["UNet", "UNet-R2"]:
+    if denoiser_kind in ["UNet"]:
         if denoiser_normalization == "layer_norm_af":
             batch_norm = True
             norm_type = "layer_norm_af"
@@ -158,7 +158,7 @@ if __name__ == "__main__":
     )
 
     # Simulate and save random measurements
-    save_dir = "/lustre/fswork/projects/rech/zqk/uqv91qh/wd/data"
+    save_dir = "./data"
     dataset_filename = (
         f"dataset_knee_single-noisy_acceleration={acceleration}_sigma={sigma}"
     )

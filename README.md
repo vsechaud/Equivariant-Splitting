@@ -21,11 +21,11 @@ Abstract: *Self-supervised learning for inverse problems allows to train a recon
 
 ### Experiments
 
-Equivariant splitting is evaluated on different imaging modalities: compressive sensing, image inpainting and accelerated MRI. The code and instructions to reproduce the results for compressive sensing and inpainting are available [here](cs+inp) and for MRI [here](mri).
+Equivariant splitting is evaluated on different imaging modalities: compressive sensing, image inpainting, accelerated MRI and sparse-view computed tomography. The code and instructions to reproduce the results for compressive sensing and inpainting are available [here](cs+inp), for MRI [here](mri) and for computed tomography [here](tomography).
 
 #### Accelerated MRI
 
-Equivariant imaging learns to solve the challenging, ill-posed problem of accelerated MRI directly from noisy k-space measurements.
+Equivariant splitting learns to solve the challenging, ill-posed problem of accelerated MRI directly from noisy k-space measurements.
 
 This section details how to run the experiments for accelerated MRI in the `mri` folder.
 
@@ -37,6 +37,9 @@ For better reproducibility, we recommend using `conda` to set up the environment
 cd mri
 conda env create -f environment.yml
 ```
+
+> [!NOTE]
+> The environment installs [our fork of DeepInverse](https://github.com/jscanvic/deepinv/commit/a57330d8e9812e8144a158c4d0eed709358505cd), not an official release.
 
 **Creating the dataset**
 
@@ -72,6 +75,53 @@ The parameter `<config>` corresponds to one of the configuration names below.
 | ES          | ❌           | x6           | MRIx6_NEQ_ES              |
 | EI          | ✅           | x6           | MRIx6_EQ_EI               |
 | SURE        | ✅           | x6           | MRIx6_EQ_SURE             |
+
+#### Sparse-View Computed Tomography
+
+Equivariant splitting learns to solve the challenging, ill-posed problem of sparse-view computed tomography directly from noisy sinograms.
+
+This section details how to run the experiments for sparse-view computed tomography in the `tomography` folder.
+
+**Setting up the environment**
+
+For better reproducibility, we recommend using `conda` to set up the environment using our provided `environment.yml` file.
+
+```sh
+cd tomography
+conda env create -f environment.yml
+```
+
+> [!NOTE]
+> The environment installs [our fork of DeepInverse](https://github.com/jscanvic/deepinv/commit/a57330d8e9812e8144a158c4d0eed709358505cd), not an official release.
+
+**Creating the dataset**
+
+To prepare the dataset used in `train.py` for the experiments, follow the instructions below.
+
+1. Download the [LIDC-IDRI](https://www.cancerimagingarchive.net/collection/lidc-idri/) CT scans using the [NBIA Data Retriever](https://wiki.cancerimagingarchive.net/display/NBIA/Downloading+TCIA+Images)
+2. Place the downloaded data in `LIDC_IDRI` so that it contains the `LIDC-IDRI` directory and the `metadata.csv` file
+3. Generate the sinogram dataset using `python create_dataset.py`
+
+If everything is set up correctly, it should create a directory `LIDC_IDRI-Tomography` containing a file named `dinv_dataset0.h5`.
+
+**Training a model**
+
+```sh
+python train.py <config>
+```
+
+**Configurations**
+
+The parameter `<config>` corresponds to one of the configuration names below.
+
+| Loss        | Equivariant  | Configuration name        |
+|-------------|--------------|---------------------------|
+| Supervised  | ✅           | CT_EQ_Supervised          |
+| Supervised  | ❌           | CT_NEQ_Supervised         |
+| ES (Ours)   | ✅           | CT_EQ_ES                  |
+| ES          | ❌           | CT_NEQ_ES                 |
+| EI          | ✅           | CT_EQ_EI                  |
+| EI          | ❌           | CT_NEQ_EI                 |
 
 #### Compressive Sensing and Inpainting
 
