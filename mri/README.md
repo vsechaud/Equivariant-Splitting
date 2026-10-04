@@ -61,10 +61,11 @@ This work makes use of the efficient training losses and MRI operator in DeepInv
 Please consider citing this work if you find it useful in your research:
 
 ```
-@article{sechaud2025equivariant,
-  title={Equivariant Splitting: Self-supervised learning from incomplete data},
-  author={Sechaud, Victor and Scanvic, J{\'e}r{\'e}my and Barth{\'e}lemy, Quentin and Abry, Patrice and Tachella, Juli{\'a}n},
-  journal={arXiv preprint arXiv:2510.00929},
-  year={2025}
+@inproceedings{sechaud2026equivariant,
+    title={Equivariant Splitting: Self-supervised learning from incomplete data},
+    author={Sechaud, Victor and Scanvic, J{\'e}r{\'e}my and Barth{\'e}lemy, Quentin and Abry, Patrice and Tachella, Juli{\'a}n},
+    booktitle={The Fourteenth International Conference on Learning Representations},
+    year={2026},
+    url={https://openreview.net/forum?id=upMIVpe467}
 }
 ```
