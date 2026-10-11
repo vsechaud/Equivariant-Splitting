@@ -39,7 +39,7 @@ conda env create -f environment.yml
 ```
 
 > [!NOTE]
-> The environment installs [our fork of DeepInverse](https://github.com/jscanvic/deepinv/commit/a57330d8e9812e8144a158c4d0eed709358505cd), not an official release.
+> The environment installs [our fork of DeepInverse](https://github.com/jscanvic/deepinv/tree/a57330d8e9812e8144a158c4d0eed709358505cd), not an official release.
 
 **Creating the dataset**
 
